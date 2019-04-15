@@ -8,45 +8,25 @@
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script>
-        //init LIFF
         function initializeApp(data) {
-            //¨ϊ±oQueryString
-            let urlParams = new URLSearchParams(window.location.search);
-            //Εγ¥άQueryString
-            $('#QueryString').val(urlParams.toString());
-            //Εγ¥άUserId
-            $('#userid').val(data.context.userId);
+            //ι΅―η¤ΊUserId
+            $('#userid').text(data.context.userId);
+            liff.getProfile().then(
+                profile => {
+                    //ι΅―η¤Ίε¨text boxδΈ­
+                    $('#UserInfo').text(profile.displayName);
+                }
+            );
         }
-        //ready
         $(function () {
             //init LIFF
             liff.init(function (data) {
                 initializeApp(data);
-            });
-            //ButtonGetProfile
-            $('#ButtonGetProfile').click(function () {
-                //¨ϊ±oUser Proile
-                liff.getProfile().then(
-                    profile=> {
-                        //Εγ¥ά¦btext box¤¤
-                        $('#UserInfo').val(profile.displayName);
-                        //©~µM¥i¥Halert
-                        alert('done');
-                    }
-                );
-            });
-            //ButtonSendMsg
-            $('#ButtonSendMsg').click(function () {
-                liff.sendMessages([
-                 {
-                     type: 'text',
-                     text: $('#msg').val()
-                 }
-                ])
-               .then(() => {
-                   alert('done');
-               })
             });
         });
     </script>
@@ -60,9 +40,9 @@
                 <input class="form-control" type="text" id="QueryString" /><br />
                 <button class="btn btn-primary" id="ButtonGetProfile">Get Profile</button>
                 <input class="form-control" type="text" id="UserInfo" /><br />
-                <label>­n¶Η°eªΊ°T®§:</label>
-                <input class="form-control" type="text" id="msg" value="΄ϊΈΥ" /><br />
-                <button class="btn btn-primary" id="ButtonSendMsg"  >­n¶Η°eªΊ°T®§</button>
+                <label>θ¦ε‚³ι€η„θ¨ζ―:</label>
+                <input class="form-control" type="text" id="msg" value="ζΈ¬θ©¦" /><br />
+                <button class="btn btn-primary" id="ButtonSendMsg"  >θ¦ε‚³ι€η„θ¨ζ―</button>
             </div>
         </div>
 </body>
