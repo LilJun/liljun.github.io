@@ -41,7 +41,7 @@
                 liff.sendMessages([
                  {
                      type: 'text',
-                     text:  $('#Name').val()+'您好,'+'\n'+'您的電話號碼是:'+$('#Phone').val()+'\n'+'您點了套餐A:'+$('#B1').val()+'份'+'&套餐B:'+$('#B2').val()+'份'+'&套餐C:'+$('#B3').val()+'份'
+                     text:  $('#Name').val()+'顧客:,'+'\n'+'電話號碼:'+$('#Phone').val()+'\n'+'訂購A meal:'+$('#B1').val()+'份'+'&B meal:'+$('#B2').val()+'份'+'&C meal:'+$('#B3').val()+'份'
                  }
                 ])
                .then(() => {
@@ -60,11 +60,11 @@
                  <input class="form-control" type="text" id="Name" /> <br />
                  <label>phone:</label>
                  <input class="form-control" type="text" id="Phone" /><br />
-                 <label>number of combo A:</label>
+                 <label>A meal:</label>
                  <input class="form-control" type="text" id="B1" value="0"/> <br />
-                 <label>number of combo B:</label>
+                 <label>B meal:</label>
                  <input class="form-control" type="text" id="B2" value="0" /><br />
-                 <label>number of combo C:</label>
+                 <label>C meal:</label>
                  <input class="form-control" type="text" id="B3"  value="0"/> <br /> 
                  <button class="btn btn-primary" id="Submitbtn">Submit</button><br /><br /><br />
                  <label>user id:</label><br />
